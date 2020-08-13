@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -18,6 +19,10 @@ require('./app/routes/account.routes')(app);
 require('./app/routes/user.routes')(app);
 require('./app/routes/group.routes')(app);
 require('./app/routes/goal.routes')(app);
+
+app.route('/*').get(function (req, res) {
+  return res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 const port = process.env.NODE_ENV === 'production' ? process.env.PORT : 3000;
 app.listen(port, () => {

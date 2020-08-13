@@ -78,7 +78,7 @@ function generateJwtToken(user) {
 
 async function sendPasswordResetEmail(account) {
   let message;
-  const resetUrl = `www.belezainteligente.app/account/resetpassword?token=${account.resetToken}`;
+  const resetUrl = `https://belezainteligente.app/account/resetpassword?token=${account.resetToken}`;
   message = `<p>Clique no link abaixo para gerar uma nova senha:</p>
                  <p><a href="${resetUrl}">${resetUrl}</a></p>`;
 
