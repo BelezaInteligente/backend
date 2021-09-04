@@ -40,16 +40,16 @@ async function update(id, params) {
   const user = await getUser(id);
 
   // validate
-  if (user.email !== params.email &&
+  if (params.email !== undefined && undeuser.email !== params.email &&
     await User.findOne({
       where: { email: params.email }
     })) {
     throw 'Email "' + params.email + '" já utilizado.';
   }
 
-  if (user.name !== params.name &&
+  if (params.name !== undefined && user.name !== params.name &&
     await User.findOne({
-      where: { email: params.email }
+      where: { name: params.name }
     })) {
     throw 'Nome do usuário "' + params.name + '" já utilizado.';
   }
