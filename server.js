@@ -1,16 +1,16 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const app = express();
+const originURL = process.env.NODE_ENV === 'production' ? process.env.BASE_URL : 'http://localhost:3000';
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(cors({ credentials: true, origin: originURL }));
 
 const db = require('./app/models');
 db.sequelize.sync();
