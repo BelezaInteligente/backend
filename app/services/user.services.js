@@ -40,7 +40,7 @@ async function update(id, params) {
   const user = await getUser(id);
 
   // validate
-  if (params.email !== undefined && undeuser.email !== params.email &&
+  if (params.email !== undefined && user.email !== params.email &&
     await User.findOne({
       where: { email: params.email }
     })) {

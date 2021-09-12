@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = function (models) {
-    User.hasMany(models.Goal, { as: 'goals' })
+    User.hasMany(models.Goal, { as: 'goals' })      
+    User.belongsToMany(models.ReportBI, {through: 'usersReportsBIs', foreignKey: 'userId', as: 'userReports'})
   };
 
   return User;

@@ -19,6 +19,8 @@ require('./app/routes/account.routes')(app);
 require('./app/routes/user.routes')(app);
 require('./app/routes/group.routes')(app);
 require('./app/routes/goal.routes')(app);
+require('./app/routes/reportBI.routes')(app);
+require('./app/routes/userReportBI.routes')(app);
 
 app.route('/*').get(function (req, res) {
   return res.sendFile(path.join(__dirname, 'public/index.html'));

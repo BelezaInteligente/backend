@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Goal.associate = function (models) {
-    Goal.belongsTo(models.User, { foreignKey: 'goalUserID', as: 'user' });
-    Goal.belongsTo(models.Group, { foreignKey: 'goalGroupID', as: 'group' });
+    Goal.belongsTo(models.User, { foreignKey: 'goalUserID', as: 'user' })
+    Goal.belongsTo(models.Group, { foreignKey: 'goalGroupID', as: 'group' })
   };
 
   return Goal;

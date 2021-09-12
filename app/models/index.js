@@ -11,5 +11,7 @@ db.sequelize = sequelize;
 db.user = require('./user.model.js')(sequelize, Sequelize);
 db.group = require('./group.model.js')(sequelize, Sequelize);
 db.goal = require('./goal.model.js')(sequelize, Sequelize);
+db.reportBI = require('./reportBI.model.js')(sequelize, Sequelize);
+db.userReportBI = require('./userReportBI.model.js')(sequelize, Sequelize);
 
 module.exports = db;
